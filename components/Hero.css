@@ -1,0 +1,14 @@
+@keyframes scrollSlider {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .slider-track {
+    animation: scrollSlider 30s linear infinite;
+    width: 200%; /* because we duplicate images */
+  }
+  
