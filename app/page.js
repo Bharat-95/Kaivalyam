@@ -1,7 +1,10 @@
-import About from '@/components/About'
-import Hero from '@/components/Hero'
-import Work from '@/components/Work'
+import About from '../components/About'
+import Follow from '../components/Follow'
+import Hero from '../components/Hero'
+import Personal from '../components/Personal'
+import Work from '../components/Work'
 import React from 'react'
+import Gallery from '../components/Gallery'
 
 const page = () => {
   return (
@@ -9,6 +12,9 @@ const page = () => {
       <Hero />
       <Work />
       <About />
+      <Personal />
+      <Follow />
+      <Gallery />
     </div>
   )
 }

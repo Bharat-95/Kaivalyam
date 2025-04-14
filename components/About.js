@@ -27,7 +27,7 @@ const About = () => {
         About Us
       </div>
 
-      <div className="lg:flex md:flex gap-10 items-center justify-between">
+      <div className="lg:flex md:flex gap-10 items-center justify-between lg:space-y-0 md:space-y-0 space-y-10">
         
         {/* Left Text Section */}
         <div className="w-full lg:w-1/2 md:w-1/2 space-y-6">
@@ -59,7 +59,7 @@ const About = () => {
           </ul>
         </div>
 
-        <div className="w-full lg:w-1/2 md:w-1/2 lg:h-[70vh] md:h-[70vh] h-[50vh] flex justify-center transition-opacity duration-1000 ease-in-out">
+        <div className="w-full lg:w-1/2 md:w-1/2 lg:h-[70vh] md:h-[50vh] h-[50vh] flex justify-center transition-opacity duration-1000 ease-in-out">
           <Image
             src={images[currentImage]}
             alt="About Kaivalyam Events"
