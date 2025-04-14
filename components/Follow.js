@@ -17,10 +17,10 @@ const Follow = () => {
   const touchEndX = useRef(0);
 
   const images = [
-    { src: "/image2.webp", alt: "Image 2" },
-    { src: "/image3.webp", alt: "Image 3" },
-    { src: "/image4.webp", alt: "Image 4" },
-    { src: "/image5.webp", alt: "Image 5" },
+    { src: "/Image2.webp", alt: "Image 2" },
+    { src: "/Image3.webp", alt: "Image 3" },
+    { src: "/Image4.webp", alt: "Image 4" },
+    { src: "/Image5.webp", alt: "Image 5" },
   ];
 
   // Resize detection
@@ -64,7 +64,7 @@ const Follow = () => {
   };
 
   return (
-    <div className="w-full mt-20 px-4 lg:px-20 flex flex-col space-y-6 justify-center items-center">
+    <div className="w-full mt-20 px-4 lg:px-10 flex flex-col space-y-6 justify-center items-center">
       <div className={`${quicksand.className} font-semibold text-4xl text-center text-[#C45C61]`}>
         Follow Us
       </div>
