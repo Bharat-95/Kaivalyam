@@ -26,14 +26,20 @@ const Header = () => {
       <ul
         className={`lg:flex md:flex hidden space-x-8 ${quicksand.className} font-semibold text-[15px]`}
       >
-        {["HOME", "ABOUT", "SERVICES", "GALLERY", "CONTACT"].map((item) => (
-          <li
-            key={item}
-            className="hover:translate-x-1 hover:-translate-y-1 duration-700"
-          >
-            <Link href="/">{item}</Link>
-          </li>
-        ))}
+       {[
+  { name: "HOME", href: "/" },
+  { name: "ABOUT", href: "/about" },
+  { name: "SERVICES", href: "/services" },
+  { name: "GALLERY", href: "/gallery" },
+  { name: "CONTACT", href: "/contact" },
+].map(({ name, href }) => (
+  <li
+    key={name}
+    className="hover:translate-x-1 hover:-translate-y-1 duration-700"
+  >
+    <Link href={href}>{name}</Link>
+  </li>
+))}
       </ul>
 
       {/* Get Quote Button */}
@@ -75,7 +81,7 @@ const Header = () => {
               <Link href="/">SERVICES</Link>
             </li>
             <li onClick={handleMenu}>
-              <Link href="/">GALLERY</Link>
+              <Link href="/gallery">GALLERY</Link>
             </li>
             <li onClick={handleMenu}>
               <Link href="/">CONTACT</Link>
