@@ -21,58 +21,58 @@ const GalleryPreview = () => {
   }, []);
 
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
-      className="px-4 bg-[#FFEFF1]"
+      className="w-full bg-[#FFEFF1] py-10 px-6 md:px-12 space-y-16"
     >
+      {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-3xl font-bold text-center text-[#C45C61] mb-12"
+        className="text-4xl font-bold text-center text-[#C45C61]"
       >
         Our Recent Events
       </motion.h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* Staggered Grid */}
+      <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
         {images.map((item, index) => (
           <motion.div
             key={item.key}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-lg shadow-md"
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+            className="overflow-hidden rounded-2xl shadow-md break-inside-avoid"
           >
             <Image
               src={item.url}
-              alt="Gallery Image"
+              alt="Event Photo"
               width={500}
               height={500}
-              className="w-full h-80 object-cover transition-transform hover:scale-105 duration-300"
+              className="w-full object-cover transition-all duration-500 hover:scale-105 hover:brightness-90 rounded-2xl"
             />
           </motion.div>
         ))}
       </div>
 
+      {/* Button */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        viewport={{ once: true }}
-        className="mt-12 flex justify-center"
+        transition={{ duration: 1 }}
+        className="flex justify-center pt-6"
       >
         <Link href="/gallery">
-          <button className="bg-[#C45C61] text-white px-6 py-2 rounded-lg text-lg font-semibold hover:bg-[#a1474b] transition">
-            View More →
+          <button className="bg-[#C45C61] text-white px-6 py-2 rounded-full text-lg font-semibold hover:bg-[#a1474b] transition">
+            View Full Gallery →
           </button>
         </Link>
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 };
 

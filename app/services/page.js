@@ -17,7 +17,6 @@ export default function ServicesPage() {
 
       if (data.images) {
         const allowed = [".jpg", ".jpeg", ".png", ".webp", ".gif"];
-
         const grouped = data.images.reduce((acc, item) => {
           if (
             item.key &&
@@ -52,34 +51,36 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div className={`p-6 md:p-12 ${quicksand.className}`}>
-      {/* Intro Text */}
-      <div className="text-center mb-12 max-w-3xl mx-auto">
+    <div className={`min-h-screen bg-[#FFEFF1] py-20 px-6 md:px-12 ${quicksand.className}`}>
+      {/* Intro */}
+      <div className="text-center mb-16 max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold text-[#C45C61] mb-4">Our Services</h1>
-        <p className="text-gray-700 text-lg">
-          We offer personalized event solutions to make your celebrations truly unforgettable. Explore each category below to know what we do best.
+        <p className="text-[#6B4A4A] text-lg">
+          From luxurious weddings to elite corporate events, explore our range of curated categories and discover how we create unforgettable experiences.
         </p>
       </div>
 
-      {/* Categories Grid */}
+      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {categories.map((cat) => (
           <Link
             href={`/${cat.category}`}
             key={cat.category}
-            className="rounded-xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300 block"
+            className="relative overflow-hidden rounded-2xl shadow-xl group"
           >
             <Image
               src={cat.coverImage}
               alt={cat.category}
-              width={500}
-              height={300}
-              className="w-full h-48 object-cover"
+              width={600}
+              height={400}
+              className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className=" p-4 text-center">
-              <h2 className="text-xl font-semibold capitalize text-[#C45C61]">
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition duration-300" />
+            <div className="absolute bottom-4 left-4 text-white z-10">
+              <h2 className="text-2xl capitalize font-semibold drop-shadow-md">
                 {cat.category.replace(/-/g, " ")}
               </h2>
+              <p className="text-sm opacity-90">{cat.totalImages} photos</p>
             </div>
           </Link>
         ))}

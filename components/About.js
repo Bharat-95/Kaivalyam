@@ -22,38 +22,41 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      className="relative w-full bg-[#FFEFF1] py-20 px-4 md:px-10 my-10"
-    >
-      {/* Background Image as Section Decoration */}
-      <div className="absolute inset-0 opacity-60">
+    <div className="relative w-full bg-[#FFEFF1] px-6 md:px-16 py-24 overflow-hidden">
+      {/* Background Image Full Width */}
+      <div className="relative h-[550px] md:h-[600px] lg:h-[650px] w-full rounded-3xl overflow-hidden shadow-xl">
         <Image
           src={images[currentImage]}
-          alt="Kaivalyam Mood"
+          alt="About Kaivalyam"
           fill
-          className="object-cover"
+          className="object-cover object-center w-full h-full"
+          quality={90}
+          priority
         />
       </div>
 
-      {/* Glass Card */}
-      <div className="relative max-w-4xl mx-auto bg-[#FFEFF1] backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 space-y-4">
+      {/* Floating Content Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="absolute top-[60%] md:top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[70%] lg:w-[50%] bg-[#FFEFF1]/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-10 z-20"
+      >
         <h2
-          className={`${pacifico.className} text-3xl md:text-4xl text-[#C45C61] text-center`}
+          className={`${pacifico.className} text-3xl md:text-4xl text-[#C45C61] mb-4 text-center`}
         >
           Kaivalyam Events
         </h2>
         <p
-          className={`${poppins.className} text-[#6B4A4A] text-center text-lg max-w-2xl mx-auto`}
+          className={`${poppins.className} text-[#6B4A4A] text-sm md:text-base text-center leading-relaxed`}
         >
           We design moments that matter — from bespoke weddings to bold brand
           experiences. Our approach blends beauty, storytelling, and precision
           into every celebration.
         </p>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

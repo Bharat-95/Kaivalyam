@@ -2,83 +2,59 @@
 
 import React from "react";
 import Image from "next/image";
-import { Pacifico, Quicksand, Poppins } from "next/font/google";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { Pacifico, Quicksand, Poppins } from "next/font/google";
 
-const pacifico = Pacifico({
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-});
-const quicksand = Quicksand({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-const poppins = Poppins({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  display: "swap",
-});
+const pacifico = Pacifico({ weight: ["400"], subsets: ["latin"] });
+const quicksand = Quicksand({ weight: ["400", "700"], subsets: ["latin"] });
+const poppins = Poppins({ weight: ["400", "500", "600"], subsets: ["latin"] });
 
 const Personal = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-      className="space-y-20 px-6 md:px-10 py-16 bg-[#FFEFF1]"
-    >
+    <div className="relative w-full bg-[#FFEFF1] px-6 md:px-16 py-10 overflow-hidden">
+      {/* Background Image Full Width */}
+      <div className="relative h-[550px] md:h-[600px] lg:h-[650px] w-full rounded-3xl overflow-hidden shadow-xl">
+        <Image
+          src="/Image3.webp"
+          alt="Personal Touch"
+          fill
+          className="object-cover object-center w-full h-full"
+          quality={90}
+          priority
+        />
+      </div>
+
+      {/* Floating Content Card */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className={`${quicksand.className} font-semibold text-4xl text-center text-[#C45C61]`}
+        className="absolute top-[60%] md:top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[70%] lg:w-[50%] bg-[#FFEFF1]/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-10 z-20"
       >
-        Personal Touch
-      </motion.div>
-
-      <div className="w-full lg:flex md:flex h-auto gap-20 lg:space-y-0 md:space-y-0 space-y-10">
-        {/* Image Block */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="lg:w-[50%] md:w-[50%] w-full lg:h-[70vh] md:h-[50vh] h-[50vh]"
+        <h2
+          className={`${pacifico.className} text-3xl md:text-4xl text-[#C45C61] mb-4 text-center`}
         >
-          <Image
-            src="/Personal.jpeg"
-            alt="no Image Found"
-            width={1000}
-            height={1000}
-            className="w-full h-full rounded-xl object-cover"
-          />
-        </motion.div>
-
-        {/* Text Block */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className={`lg:w-[50%] md:w-[50%] w-full ${poppins.className} flex flex-col justify-center items-center text-justify text-[#9C6B6B] font-normal text-lg`}
+          Personal Touch
+        </h2>
+        <p
+          className={`${poppins.className} text-[#6B4A4A] text-sm md:text-base text-center leading-relaxed`}
         >
-          <p className="mb-6">
-            At <strong>Kaivalyam Events</strong>, we believe every celebration holds a unique story — yours. From custom décor touches to thoughtful guest experiences, we focus on the details that make your event truly personal. Whether it’s a grand celebration or an intimate gathering, we’re here to design moments that reflect your vision and leave lasting impressions.
-          </p>
+          At <strong>Kaivalyam Events</strong>, we craft each celebration with an emotional connection —
+          your vision, your guests, your story. Every color, scent, and arrangement is chosen with care to make it truly yours.
+        </p>
+
+        <div className="flex justify-center mt-6">
           <Link
             href="/"
-            className="text-[#C45C61] font-semibold text-base underline hover:text-[#a0474b] transition"
+            className="bg-[#C45C61] text-white px-6 py-2 rounded-full font-medium hover:bg-[#a8474c] transition"
           >
-            Our Services →
+            Explore Services
           </Link>
-        </motion.div>
-      </div>
-    </motion.div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
