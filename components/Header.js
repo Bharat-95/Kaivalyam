@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between lg:px-10 md:px-10 px-4 lg:h-20 md:h-20 h-16 text-[#C45C61] sticky z-50 bg-[#FFEFF1]">
       <div className="flex items-center gap-4">
-      <div className="bg-[#C45C61] lg:h-18 h-14 lg:w-20 w-18 rounded-md shadow-md ">
+      <div className="lg:h-18 h-14 lg:w-20 w-18  ">
         <Image src='/Logo.png' alt="No Logo Found" height={1000} width={1000} className="lg:w-20 w-18 lg:h-18 h-14" />
         
       </div>
