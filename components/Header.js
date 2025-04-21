@@ -21,13 +21,13 @@ const Header = () => {
   };
 
   return (
-    <div className="flex items-center justify-between lg:px-10 md:px-10 px-4 lg:h-20 md:h-20 h-16 text-[#C45C61] sticky z-50 bg-[#FFEFF1]">
+    <div className="flex bg-[#C45C61] items-center justify-between  lg:px-10 md:px-10 px-4 lg:h-20 md:h-20 h-16 text-[#FFEFF1] mb-10 rounded-b-xl sticky z-50 ">
       <div className="flex items-center gap-4">
       <div className="lg:h-18 h-14 lg:w-20 w-18  ">
         <Image src='/Logo.png' alt="No Logo Found" height={1000} width={1000} className="lg:w-20 w-18 lg:h-18 h-14" />
         
       </div>
-      <span className={`${pacifico.className}`}>Kailvalyam Events</span>
+      <span className={`${pacifico.className}`}>Kaivalyam Events</span>
       </div>
 
       {/* Desktop Navbar */}
@@ -52,7 +52,7 @@ const Header = () => {
 
       {/* Get Quote Button */}
       <div
-        className={`bg-[#C45C61] lg:flex md:flex hidden text-white p-2 rounded-md shadow-md ${quicksand.className} font-bold hover:translate-x-1 hover:-translate-y-1 duration-700`}
+        className={`bg-[#FFEFF1] lg:flex md:flex hidden text-[#C45C61] p-2 rounded-md shadow-md ${quicksand.className} font-bold hover:translate-x-1 hover:-translate-y-1 duration-700`}
       >
         <Link href="/quote">Get Quote</Link>
       </div>
