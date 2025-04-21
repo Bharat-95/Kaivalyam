@@ -41,7 +41,7 @@ const Follow = () => {
   
 
   return (
-    <div className="w-full bg-[#FFEFF1] py-20 px-4 lg:px-10 flex flex-col space-y-6 justify-center items-center">
+    <div className="w-full bg-[#FFEFF1] px-4 lg:px-10 flex flex-col space-y-6 justify-center items-center">
       <div
         className={`${quicksand.className} font-semibold text-4xl text-center text-[#C45C61]`}
       >

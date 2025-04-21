@@ -21,7 +21,7 @@ const Work = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className='space-y-10'
+      className='space-y-10 lg:py-10'
     >
       <div className={`${quicksand.className} font-semibold text-4xl flex justify-center text-[#C45C61] lg:px-0 md:px-0 px-4 text-center`}>
         You&apos;re Wondering - How Does It Work ?

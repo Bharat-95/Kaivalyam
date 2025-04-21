@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { Quicksand, Pacifico } from "next/font/google";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { useState } from "react";
+import { motion } from "framer-motion";
 
 const quicksand = Quicksand({ weight: ["400", "600"], subsets: ["latin"], display: "swap" });
 const pacifico = Pacifico({ weight: ["400"], subsets: ["latin"], display: "swap" });
@@ -16,24 +17,42 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle submission logic here (email, API, etc.)
     alert("Thank you for contacting us!");
     setForm({ name: "", email: "", message: "" });
   };
 
   return (
-    <div className="px-6 md:px-16 lg:px-24 py-12 space-y-16">
-      <div className="text-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      className="px-6 md:px-16 lg:px-24 py-12 space-y-16"
+    >
+      {/* Section Heading */}
+      <motion.div
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center"
+      >
         <h2 className={`${quicksand.className} text-4xl font-bold text-[#C45C61]`}>Contact Us</h2>
         <p className="mt-4 text-[#9C6B6B] max-w-2xl mx-auto text-lg">
           We&apos;d love to hear from you! Whether you&apos;re planning an event or just want to say hi.
         </p>
-      </div>
+      </motion.div>
 
-      {/* Contact Info and Form */}
+      {/* Grid: Info + Form */}
       <div className="grid lg:grid-cols-2 gap-12">
-        {/* Info Section */}
-        <div className="space-y-6 text-[#9C6B6B]">
+        {/* Contact Info Section */}
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="space-y-6 text-[#9C6B6B]"
+        >
           <div className="flex items-center gap-4">
             <FaPhoneAlt className="text-[#C45C61]" />
             <span>+91 98765 43210</span>
@@ -50,7 +69,14 @@ const Contact = () => {
               Hyderabad, Telangana - 500001
             </span>
           </div>
-          <div className="mt-6 rounded-xl overflow-hidden shadow-md">
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mt-6 rounded-xl overflow-hidden shadow-md"
+          >
             <iframe
               className="w-full h-64"
               src="https://www.google.com/maps/embed?..."
@@ -58,12 +84,16 @@ const Contact = () => {
               loading="lazy"
               title="Kaivalya Events Location"
             ></iframe>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Form Section */}
-        <form
+        {/* Contact Form */}
+        <motion.form
           onSubmit={handleSubmit}
+          initial={{ x: 50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
           className="bg-[#FFEFF1] p-6 rounded-xl shadow-lg space-y-4 text-[#333]"
         >
           <h3 className={`${pacifico.className} text-2xl text-[#C45C61] mb-2`}>Send a Message</h3>
@@ -100,9 +130,9 @@ const Contact = () => {
           >
             Send Message
           </button>
-        </form>
+        </motion.form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

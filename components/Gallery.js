@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const GalleryPreview = () => {
   const [images, setImages] = useState([]);
@@ -20,14 +21,33 @@ const GalleryPreview = () => {
   }, []);
 
   return (
-    <div className="px-4 ">
-      <h2 className="text-3xl font-bold text-center text-[#C45C61] mb-8">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      className="px-4 bg-[#FFEFF1]"
+    >
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-3xl font-bold text-center text-[#C45C61] mb-12"
+      >
         Our Recent Events
-      </h2>
+      </motion.h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {images.map((item) => (
-          <div key={item.key} className="overflow-hidden rounded-lg shadow-md">
+        {images.map((item, index) => (
+          <motion.div
+            key={item.key}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="overflow-hidden rounded-lg shadow-md"
+          >
             <Image
               src={item.url}
               alt="Gallery Image"
@@ -35,19 +55,24 @@ const GalleryPreview = () => {
               height={500}
               className="w-full h-80 object-cover transition-transform hover:scale-105 duration-300"
             />
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      {/* More Button */}
-      <div className="mt-10 flex justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        viewport={{ once: true }}
+        className="mt-12 flex justify-center"
+      >
         <Link href="/gallery">
           <button className="bg-[#C45C61] text-white px-6 py-2 rounded-lg text-lg font-semibold hover:bg-[#a1474b] transition">
             View More →
           </button>
         </Link>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

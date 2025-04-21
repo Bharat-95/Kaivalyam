@@ -8,7 +8,7 @@ import Gallery from '../components/Gallery'
 
 const page = () => {
   return (
-    <div className='lg:space-y-20 md:space-y-10 space-y-10'>
+    <div className='lg:space-y-10 md:space-y-10 space-y-10'>
       <Hero />
       <Work />
       <About />

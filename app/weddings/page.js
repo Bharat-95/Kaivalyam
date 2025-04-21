@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const BabyShowerDecor = () => {
+const WeddingsDecor = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const BabyShowerDecor = () => {
 
       if (data.images) {
         const filtered = data.images
-          .filter((img) => img.category === "babyshowers")
+          .filter((img) => img.category === "weddings")
           .sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
         setImages(filtered);
       }
@@ -24,26 +24,24 @@ const BabyShowerDecor = () => {
 
   return (
     <div className="bg-[#fff6f7]">
-      {/* Hero Section */}
-      <div className="w-full h-[60vh] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/BabyShower.jpg')" }}>
+      <div className="w-full h-[60vh] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/Weddings.webp')" }}>
+    
       </div>
 
-      {/* Intro Section */}
       <div className="max-w-5xl mx-auto px-6 py-12 text-center">
-        <h2 className="text-3xl font-semibold text-[#C45C61] mb-4">Celebrate New Beginnings in Style</h2>
+        <h2 className="text-3xl font-semibold text-[#C45C61] mb-4">Celebrate Love with Elegance</h2>
         <p className="text-gray-700 text-lg leading-relaxed">
-          Whether it’s a princess theme or a minimal floral backdrop, we make every baby shower magical. Our decorators bring joy and warmth to every corner of your venue with balloons, floral arches, custom props, and lovable photo zones.
+          From vibrant mandaps to romantic receptions, we curate breathtaking wedding setups tailored to your cultural and personal style.
         </p>
       </div>
 
-      {/* Image Gallery */}
       <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {images.map((img) => (
             <div key={img.key} className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
               <Image
                 src={img.url}
-                alt="Baby Shower Decoration"
+                alt="Wedding Decoration"
                 width={600}
                 height={400}
                 className="w-full h-60 object-cover"
@@ -53,11 +51,11 @@ const BabyShowerDecor = () => {
         </div>
 
         {images.length === 0 && (
-          <p className="text-center text-gray-500 mt-10">No baby shower images available yet.</p>
+          <p className="text-center text-gray-500 mt-10">No wedding images available yet.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default BabyShowerDecor;
+export default WeddingsDecor;
