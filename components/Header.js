@@ -50,11 +50,11 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu Icon */}
-      <div className="lg:hidden md:hidden relative bg-[#FFEFF1]">
+      <div className="lg:hidden md:hidden relative">
         <BiMenuAltLeft size={40} onClick={handleMenu} />
         {/* Slide-in mobile menu */}
         <div
-          className={`fixed top-0 right-0 h-screen w-60 bg-white shadow-lg transform ${
+          className={`fixed top-0 right-0 h-screen w-60 bg-[#FFEFF1] shadow-lg transform ${
             menu ? "translate-x-0" : "translate-x-full"
           } transition-transform duration-500 ease-in-out z-50`}
         >
