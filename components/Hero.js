@@ -7,14 +7,12 @@ import { FaInstagram } from "react-icons/fa";
 import { SlSocialFacebook } from "react-icons/sl";
 import { CiYoutube } from "react-icons/ci";
 
-
-
 const pacifico = Pacifico({ weight: ["400"], subsets: ["latin"], display: "swap" });
 const quicksand = Quicksand({ weight: ["400", "700"], subsets: ["latin"], display: "swap" });
 const poppins = Poppins({ weight: ["400", "500", "600"], subsets: ["latin"], display: "swap" });
 
 const images = ["/Hero1.jpg", "/Hero2.jpg", "/Hero3.jpg"];
-const duplicatedImages = [...images, ...images]; // Duplicate for seamless looping
+const duplicatedImages = [...images, ...images];
 
 const Hero = () => {
   const trackRef = useRef(null);
@@ -26,8 +24,8 @@ const Hero = () => {
     const imageCount = images.length;
     const duplicatedCount = duplicatedImages.length;
     let currentIndex = 0;
-    const slideDuration = 1000; // 1s transition
-    const pauseDuration = 4000; // 4s pause (total 5s per slide)
+    const slideDuration = 1000;
+    const pauseDuration = 4000;
 
     const slide = () => {
       const percentage = -(100 / duplicatedCount) * currentIndex;
@@ -37,55 +35,57 @@ const Hero = () => {
       currentIndex++;
 
       if (currentIndex === duplicatedCount) {
-        // After reaching the end of duplicated images, reset instantly
         setTimeout(() => {
           track.style.transition = "none";
           track.style.transform = "translateX(0%)";
           currentIndex = 0;
-          // Continue sliding immediately
           setTimeout(slide, 0);
         }, slideDuration);
       } else {
-        // Continue normal sliding
         setTimeout(slide, slideDuration + pauseDuration);
       }
     };
 
-    slide(); // Start the carousel
+    slide();
 
     return () => {};
   }, []);
 
   return (
-    <div className="border border-[#C45C61] lg:mx-10 mx-4 lg:h-[85vh] md:h-[50vh] rounded-2xl lg:flex md:flex shadow-lg overflow-hidden lg:space-y-0 md:space-y-0 space-y-10">
+    <div className="border border-[#C45C61] mx-4 lg:mx-10 rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row lg:h-[85vh] md:h-[60vh]">
       {/* Left Section */}
-      <div className="lg:w-1/2 w-full flex flex-col items-center justify-center px-6 text-center py-10 lg:space-y-0 md:space-y-0 space-y-4">
-        <h1 className={`text-[32px] md:text-[40px] text-[#C45C61] ${quicksand.className} font-bold leading-snug`}>
-          Welcome to <span className={`${pacifico.className} text-[42px] md:text[38px]`}>Kaivalyam Events</span>
+      <div className="lg:w-1/2 w-full flex flex-col items-center justify-center px-6 py-10 text-center space-y-4 relative">
+        <h1 className={`text-[28px] md:text-[36px] lg:text-[40px] text-[#C45C61] ${quicksand.className} font-bold leading-snug`}>
+          Welcome to{" "}
+          <span className={`${pacifico.className} text-[36px] md:text-[42px] lg:text-[48px]`}>
+            Kaivalyam Events
+          </span>
         </h1>
-        <p className={`${poppins.className} text-xl text-[#9C6B6B] mt-4`}>
+        <p className={`${poppins.className} text-base md:text-lg lg:text-xl text-[#9C6B6B]`}>
           Crafting Moments, Creating Memories
         </p>
-        <div className={`bg-[#C45C61] text-white p-2 mt-4 rounded-md shadow-md ${quicksand.className} font-semibold hover:translate-x-[1px] hover:-translate-y-[1px] duration-500 hover:shadow-white hover:shadow-xl`}><Link href='/quote'>Get a Quote</Link></div>
-        <div className="absolute lg:bottom-20 md:bottom-[45%]  bottom-[43%] flex items-center gap-6 left-20 text-[#C45C61]">
-            <div>FOLLOW US ON :</div>
-            <ul className="flex space-x-2 items-center">
-                <li><Link href='/'><FaInstagram size={24} /></Link></li>
-                <li><Link href='/'><SlSocialFacebook size={24} /></Link></li>
-                <li><Link href='/'><CiYoutube size={30} /></Link></li>
 
-            </ul>
+        <Link href="/quote" className={`bg-[#C45C61] text-white py-2 px-4 mt-4 rounded-md shadow-md ${quicksand.className} font-semibold hover:translate-x-[1px] hover:-translate-y-[1px] duration-500 hover:shadow-white hover:shadow-xl`}>
+          Get a Quote
+        </Link>
+
+        {/* Social Media Icons - Only visible on large screens */}
+        <div className="absolute lg:bottom-10 md:bottom-10 hidden md:flex items-center gap-4 text-[#C45C61]">
+          <span className={`${poppins.className} font-medium`}>FOLLOW US ON:</span>
+          <ul className="flex gap-3 items-center">
+            <li><Link href="https://www.instagram.com/kailvalyaevents" target="_blank"><FaInstagram size={24} /></Link></li>
+            <li><Link href="/" target="_blank"><SlSocialFacebook size={24} /></Link></li>
+            <li><Link href="/" target="_blank"><CiYoutube size={30} /></Link></li>
+          </ul>
         </div>
       </div>
 
       {/* Right Carousel Section */}
-      <div className="lg:w-1/2 w-full h-[300px] lg:h-[85vh] md:h-[50vh] relative overflow-hidden">
+      <div className="lg:w-1/2 w-full h-[300px] md:h-[50vh] lg:h-full relative overflow-hidden">
         <div
           ref={trackRef}
-          className="flex w-full h-full"
-          style={{
-            width: `${duplicatedImages.length * 100}%`,
-          }}
+          className="flex h-full"
+          style={{ width: `${duplicatedImages.length * 100}%` }}
         >
           {duplicatedImages.map((img, index) => (
             <div
@@ -98,11 +98,21 @@ const Hero = () => {
                 alt={`Slide ${index + 1}`}
                 width={1000}
                 height={1000}
-                className="rounded-2xl object-cover w-full h-full"
+                className="object-cover w-full h-full"
               />
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Social Icons on Mobile */}
+      <div className="md:hidden mt-4 mb-6 text-[#C45C61] flex flex-col items-center gap-2">
+        <span className={`${poppins.className} text-sm`}>FOLLOW US ON:</span>
+        <ul className="flex gap-4 items-center">
+          <li><Link href="https://www.instagram.com/kailvalyaevents" target="_blank"><FaInstagram size={22} /></Link></li>
+          <li><Link href="/" target="_blank"><SlSocialFacebook size={22} /></Link></li>
+          <li><Link href="/" target="_blank"><CiYoutube size={26} /></Link></li>
+        </ul>
       </div>
     </div>
   );
