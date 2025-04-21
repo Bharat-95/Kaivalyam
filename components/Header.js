@@ -46,7 +46,7 @@ const Header = () => {
       <div
         className={`bg-[#C45C61] lg:flex md:flex hidden text-white p-2 rounded-md shadow-md ${quicksand.className} font-bold hover:translate-x-1 hover:-translate-y-1 duration-700`}
       >
-        <Link href="/">Get Quote</Link>
+        <Link href="/quote">Get Quote</Link>
       </div>
 
       {/* Mobile Menu Icon */}
@@ -88,7 +88,7 @@ const Header = () => {
             </li>
             <li onClick={handleMenu}  className={`bg-[#C45C61] w-24 text-white p-2 rounded-md shadow-md ${quicksand.className} font-bold `}>
             
-        <Link href="/">Get Quote</Link>
+        <Link href="/quote">Get Quote</Link>
 
             </li>
           </ul>

@@ -66,7 +66,7 @@ const Hero = () => {
         <p className={`${poppins.className} text-xl text-[#9C6B6B] mt-4`}>
           Crafting Moments, Creating Memories
         </p>
-        <div className={`bg-[#C45C61] text-white p-2 mt-4 rounded-md shadow-md ${quicksand.className} font-semibold hover:translate-x-[1px] hover:-translate-y-[1px] duration-500 hover:shadow-white hover:shadow-xl`}><Link href='/'>Get a Quote</Link></div>
+        <div className={`bg-[#C45C61] text-white p-2 mt-4 rounded-md shadow-md ${quicksand.className} font-semibold hover:translate-x-[1px] hover:-translate-y-[1px] duration-500 hover:shadow-white hover:shadow-xl`}><Link href='/quote'>Get a Quote</Link></div>
         <div className="absolute lg:bottom-20 md:bottom-[45%]  bottom-[43%] flex items-center gap-6 left-20 text-[#C45C61]">
             <div>FOLLOW US ON :</div>
             <ul className="flex space-x-2 items-center">

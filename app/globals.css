@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    background-color: #C45C61; /* Rosé Gold background */
+    color: #ffffff;            /* White text */
+  }  

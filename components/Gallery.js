@@ -12,7 +12,7 @@ const GalleryPreview = () => {
       const res = await fetch("/api/list-images");
       const data = await res.json();
       if (data.images) {
-        setImages(data.images.slice(0, 6)); // Only first 6 images
+        setImages(data.images.slice(0, 6));
       }
     };
 
@@ -33,7 +33,7 @@ const GalleryPreview = () => {
               alt="Gallery Image"
               width={500}
               height={500}
-              className="w-full h-56 object-cover transition-transform hover:scale-105 duration-300"
+              className="w-full h-80 object-cover transition-transform hover:scale-105 duration-300"
             />
           </div>
         ))}
