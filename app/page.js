@@ -10,8 +10,9 @@ const page = () => {
   return (
     <div className='lg:space-y-10 md:space-y-10 space-y-10'>
       <Hero />
-      <Work />
       <About />
+      <Work />
+     
       <Gallery />
       <Personal />
       <Follow />

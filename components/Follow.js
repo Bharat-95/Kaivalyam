@@ -48,7 +48,7 @@ const Follow = () => {
         Follow Us
       </div>
       <div className={`${pacifico.className} text-[#C45C61] text-2xl`}>
-        <Link href={instagramUrl} target="_blank">@KailvalyaEvents</Link>
+        <Link href={instagramUrl} target="_blank">@KaivalyamEvents</Link>
       </div>
 
       {/* Embedded SociableKIT Instagram Feed */}
