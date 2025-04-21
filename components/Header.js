@@ -1,15 +1,17 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Quicksand } from "next/font/google";
+import { Quicksand, Pacifico } from "next/font/google";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { RxCross1 } from "react-icons/rx";
+import Image from "next/image";
 
 const quicksand = Quicksand({
   weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 });
+const pacifico = Pacifico({ weight: ["400"], subsets: ["latin"], display: "swap" });
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
@@ -20,7 +22,13 @@ const Header = () => {
 
   return (
     <div className="flex items-center justify-between lg:px-10 md:px-10 px-4 lg:h-20 md:h-20 h-16 text-[#C45C61] sticky z-50 bg-[#FFEFF1]">
-      <div className="text-xl font-bold">Logo</div>
+      <div className="flex items-center gap-4">
+      <div className="bg-[#C45C61] lg:h-18 h-14 lg:w-20 w-18 rounded-md shadow-md ">
+        <Image src='/Logo.png' alt="No Logo Found" height={1000} width={1000} className="lg:w-20 w-18 lg:h-18 h-14" />
+        
+      </div>
+      <span className={`${pacifico.className}`}>Kailvalyam Events</span>
+      </div>
 
       {/* Desktop Navbar */}
       <ul

@@ -37,7 +37,7 @@ const Footer = () => {
             Connect With Us
           </h3>
           <div className="flex space-x-4 text-[#C45C61] text-xl">
-            <a href="https://www.instagram.com/kailvalyaevents" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/hyderabadeventplanners" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
