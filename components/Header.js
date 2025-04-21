@@ -50,7 +50,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu Icon */}
-      <div className="lg:hidden md:hidden relative">
+      <div className="lg:hidden md:hidden relative bg-[#FFEFF1]">
         <BiMenuAltLeft size={40} onClick={handleMenu} />
         {/* Slide-in mobile menu */}
         <div
