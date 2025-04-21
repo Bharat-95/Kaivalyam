@@ -75,16 +75,16 @@ const Header = () => {
               <Link href="/">HOME</Link>
             </li>
             <li onClick={handleMenu}>
-              <Link href="/">ABOUT</Link>
+              <Link href="/about">ABOUT</Link>
             </li>
             <li onClick={handleMenu}>
-              <Link href="/">SERVICES</Link>
+              <Link href="/services">SERVICES</Link>
             </li>
             <li onClick={handleMenu}>
               <Link href="/gallery">GALLERY</Link>
             </li>
             <li onClick={handleMenu}>
-              <Link href="/">CONTACT</Link>
+              <Link href="/contact">CONTACT</Link>
             </li>
             <li onClick={handleMenu}  className={`bg-[#C45C61] w-24 text-white p-2 rounded-md shadow-md ${quicksand.className} font-bold `}>
             
